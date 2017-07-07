@@ -2,10 +2,10 @@ package com.android.abhilash.popularmovies;
 
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.TabLayout;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
-import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.android.abhilash.popularmovies.Utils.NetworkUtils;
@@ -49,8 +49,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         ViewPagerAdapterForMovie adapterForMovie = new ViewPagerAdapterForMovie(getSupportFragmentManager());
         viewpager.setAdapter(adapterForMovie);
-        TableLayout tabs = (TableLayout) findViewById(R.id.tablayout);
-
+       TabLayout layout = (TabLayout) findViewById(R.id.tablayout);
+        layout.setupWithViewPager(viewpager);
     }
 
 
