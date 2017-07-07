@@ -1,10 +1,11 @@
 package com.android.abhilash.popularmovies;
 
-import android.graphics.Movie;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.ImageView;
+import android.widget.TableLayout;
 import android.widget.TextView;
 
 import com.android.abhilash.popularmovies.Utils.NetworkUtils;
@@ -30,6 +31,8 @@ public class MovieDetailsActivity extends AppCompatActivity {
     TextView mrating;
     @BindView(R.id.movie_releasedate)
     TextView mreleaseData;
+    @BindView(R.id.viewpager)
+    ViewPager viewpager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -43,6 +46,10 @@ public class MovieDetailsActivity extends AppCompatActivity {
         mreleaseData.setText(movie.getMreleaseData());
         mrating.setText(movie.getMrating());
         mmovieOverview.setText(movie.getMmovieOverview());
+
+        ViewPagerAdapterForMovie adapterForMovie = new ViewPagerAdapterForMovie(getSupportFragmentManager());
+        viewpager.setAdapter(adapterForMovie);
+        TableLayout tabs = (TableLayout) findViewById(R.id.tablayout);
 
     }
 
